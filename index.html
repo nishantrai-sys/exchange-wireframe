@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>USI - Exchange Wireframe</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Top Navigation -->
+  <header class="top-nav">
+    <div class="top-nav-left">
+      <a href="#" class="nav-link"><span class="nav-icon"></span> USI</a>
+      <a href="#" class="nav-link"><span class="nav-icon"></span> LMS</a>
+      <a href="#" class="nav-link"><span class="nav-icon"></span> OMS</a>
+      <a href="#" class="nav-link"><span class="nav-icon"></span> SOM</a>
+      <button class="btn btn-teal btn-sm">Back To Search</button>
+    </div>
+    <div class="top-nav-right">
+      <span class="user-email">supratickdas_albl@arvindinternet.com</span>
+      <span class="dropdown-arrow">&#9660;</span>
+    </div>
+  </header>
+
+  <div class="layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="user-profile">
+        <div class="avatar">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='24' r='14' fill='%23ccc'/%3E%3Cellipse cx='32' cy='58' rx='22' ry='16' fill='%23ccc'/%3E%3C/svg%3E" alt="User">
+        </div>
+        <div class="user-info">
+          <strong>Mohamed afsal</strong>
+          <p class="email">afsallegacy@gmail.com</p>
+          <p class="mobile">Mobile : +91 8590558681</p>
+          <p class="status">User Status : <span class="active">ACTIVE</span></p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-item" data-page="home">Home Screen</a>
+        <a href="#" class="nav-item active" data-page="orders">Order Details</a>
+        <a href="#" class="nav-item" data-page="returns">Returns</a>
+        <a href="#" class="nav-item" data-page="exchange">Exchange</a>
+        <a href="#" class="nav-item" data-page="cancellation">Cancellation</a>
+        <a href="#" class="nav-item" data-page="delivery">Delivery Modification</a>
+        <a href="#" class="nav-item" data-page="queries">Queries</a>
+        <a href="#" class="nav-item" data-page="account">Identity &amp; Account</a>
+        <a href="#" class="nav-item" data-page="create-task">Create Task</a>
+        <a href="#" class="nav-item" data-page="specific-tasks">Specific Tasks</a>
+        <a href="#" class="nav-item" data-page="dashboard">Dashboard</a>
+        <a href="#" class="nav-item" data-page="all-tasks">All Tasks</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <textarea placeholder="Notes here..." rows="4"></textarea>
+        <button class="btn btn-teal btn-block">Close Ticket</button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Order Details Page -->
+      <div id="orders-page" class="page">
+        <div class="panel panel-dark">
+          <div class="panel-heading">Search Order</div>
+          <div class="panel-body">
+            <div class="search-row">
+              <input type="text" class="form-control" value="AJ26xu475" placeholder="Search for Order">
+              <button class="btn btn-teal">Search</button>
+            </div>
+            <div class="order-summary" id="orders-order-summary"></div>
+          </div>
+        </div>
+
+        <div class="two-col margin-top">
+          <div class="panel panel-dark col-summary">
+            <div class="panel-heading">Order Summary</div>
+            <table class="kv-table" id="orders-summary-table">
+              <tbody></tbody>
+            </table>
+          </div>
+
+          <div class="panel panel-dark col-line-items">
+            <div class="panel-heading">Line Item Payment Summary</div>
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Consignment Id</th>
+                    <th>Style Id/EAN/SAP Id</th>
+                    <th>Size</th>
+                    <th>Brand / Display Name</th>
+                    <th>Price</th>
+                    <th>Discount</th>
+                    <th>GST Benefit</th>
+                    <th>Final Price</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="orders-line-items-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-dark margin-top">
+          <div class="panel-heading">Consignment Details</div>
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Select</th>
+                  <th>Consignment Ids</th>
+                  <th>Delivery Mode</th>
+                  <th>Delivery Address</th>
+                  <th>Status</th>
+                  <th>Update Status</th>
+                  <th>Fullfilling Store</th>
+                  <th>History</th>
+                  <th>Logistics Partner</th>
+                  <th>Tracking Link</th>
+                  <th>Date of Delivery</th>
+                  <th>Rollback</th>
+                </tr>
+              </thead>
+              <tbody id="orders-consignment-body"></tbody>
+            </table>
+          </div>
+          <div class="panel-footer">
+            <button class="btn btn-teal">Assign Task</button>
+            <small class="footer-note">*Select Consignment to assign task</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Returns Page -->
+      <div id="returns-page" class="page hidden">
+        <div class="panel panel-dark">
+          <div class="panel-heading">Search Order</div>
+          <div class="panel-body">
+            <div class="search-row">
+              <input type="text" class="form-control" value="O268moP8" placeholder="Search for Order">
+              <button class="btn btn-teal">Search</button>
+            </div>
+            <div class="order-summary" id="returns-order-summary"></div>
+          </div>
+        </div>
+
+        <div class="panel panel-danger margin-top">
+          <div class="panel-heading">Items Ineligible for returns</div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Select</th>
+                <th>Products</th>
+                <th>Size</th>
+                <th>Delivery Mode</th>
+                <th>Status</th>
+                <th>Reason</th>
+              </tr>
+            </thead>
+            <tbody id="returns-ineligible-body"></tbody>
+          </table>
+          <div class="panel-footer">
+            <button class="btn btn-teal">Request Override</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exchange Page -->
+      <div id="exchange-page" class="page hidden">
+        <div class="panel panel-dark">
+          <div class="panel-heading">Search Order</div>
+          <div class="panel-body">
+            <div class="search-row">
+              <input type="text" class="form-control" value="O268moP8" placeholder="Search for Order">
+              <button class="btn btn-teal">Search</button>
+            </div>
+            <div class="order-summary" id="exchange-order-summary"></div>
+          </div>
+        </div>
+
+        <!-- Eligible items for exchange -->
+        <div class="panel panel-success margin-top">
+          <div class="panel-heading">Items eligible for exchange</div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Select</th>
+                <th>Products</th>
+                <th>Size</th>
+                <th>Delivery Mode</th>
+                <th>Exchange Size</th>
+                <th>Exchange Mode</th>
+                <th>Qc Bypass</th>
+                <th>Exchange Reason</th>
+                <th>Comment(s)</th>
+                <th>Pick-up Location</th>
+              </tr>
+            </thead>
+            <tbody id="exchange-eligible-body"></tbody>
+          </table>
+          <div class="panel-footer">
+            <button class="btn btn-teal">Initiate Exchange</button>
+            <small class="footer-note">*Select Item, Choose Exchange Mode, Size &amp; Reason, Comment to Continue. If exchange mode is Reverse Pickup or Store Walk In, Please select Pick-up Location</small>
+          </div>
+        </div>
+
+        <!-- Ineligible items for exchange -->
+        <div class="panel panel-danger margin-top">
+          <div class="panel-heading">Items Ineligible for exchange</div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Select</th>
+                <th>Products</th>
+                <th>Size</th>
+                <th>Delivery Mode</th>
+                <th>Status</th>
+                <th>Reason</th>
+              </tr>
+            </thead>
+            <tbody id="exchange-ineligible-body"></tbody>
+          </table>
+          <div class="panel-footer">
+            <button class="btn btn-teal">Request Override</button>
+          </div>
+        </div>
+
+        <!-- Work in progress exchange -->
+        <div class="panel panel-info margin-top">
+          <div class="panel-heading">Work in progress exchange</div>
+          <table class="data-table wip-table">
+            <thead>
+              <tr>
+                <th>Select</th>
+                <th>Leg</th>
+                <th>Id</th>
+                <th>Product</th>
+                <th>Mode</th>
+                <th>Status</th>
+                <th>Error</th>
+                <th>Reason</th>
+                <th>History</th>
+                <th>Location</th>
+                <th>Return Pick-up/ Forward Delivery Date</th>
+                <th>Logistics Partner</th>
+                <th>Tracking Link</th>
+              </tr>
+            </thead>
+            <tbody id="exchange-wip-body"></tbody>
+          </table>
+          <div class="panel-footer">
+            <button class="btn btn-teal">Assign Task</button>
+            <small class="footer-note">*Select Item to Assign Task</small>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
