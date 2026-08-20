@@ -136,6 +136,7 @@ var wipExchangeGroups = [
   {
     returnLeg: {
       id: 'R26e10a1',
+      consignmentId: 'C26e10a1',
       product: 'Printed Slim Fit Cotton T-Shirt (Size L)',
       mode: 'SELFSHIP',
       status: 'RET_QC_PASS',
@@ -144,10 +145,14 @@ var wipExchangeGroups = [
       location: 'View Address',
       validDate: '16 Aug 2026',
       logisticsPartner: '-',
-      trackingLink: '-'
+      trackingLink: '-',
+      refundStatus: 'REFUND_INITIATED',
+      refundAmount: 899,
+      refundMode: 'Original Payment Mode'
     },
     forwardLeg: {
       id: 'F26e10b1',
+      consignmentId: 'C26e10b1',
       product: 'Printed Slim Fit Cotton T-Shirt (Size M)',
       mode: 'FORWARD',
       status: 'ORDER_CONFIRMED',
@@ -156,12 +161,16 @@ var wipExchangeGroups = [
       location: 'View Address',
       validDate: '18 Aug 2026',
       logisticsPartner: 'Delhivery',
-      trackingLink: 'Track'
+      trackingLink: 'Track',
+      refundStatus: '-',
+      refundAmount: '-',
+      refundMode: '-'
     }
   },
   {
     returnLeg: {
       id: 'R26e10c2',
+      consignmentId: 'C26e10c2',
       product: 'Checked Casual Shirt (Size M)',
       mode: 'REVERSE PICKUP',
       status: 'RET_INITIATED',
@@ -170,10 +179,14 @@ var wipExchangeGroups = [
       location: 'View Address',
       validDate: '19 Aug 2026',
       logisticsPartner: '-',
-      trackingLink: '-'
+      trackingLink: '-',
+      refundStatus: 'REFUND_COMPLETED',
+      refundAmount: 1299,
+      refundMode: 'Bank Transfer'
     },
     forwardLeg: {
       id: 'F26e10d2',
+      consignmentId: 'C26e10d2',
       product: 'Checked Casual Shirt (Size L)',
       mode: 'FORWARD',
       status: 'PACKED',
@@ -182,7 +195,10 @@ var wipExchangeGroups = [
       location: 'View Address',
       validDate: '20 Aug 2026',
       logisticsPartner: 'Ekart',
-      trackingLink: 'Track'
+      trackingLink: 'Track',
+      refundStatus: '-',
+      refundAmount: '-',
+      refundMode: '-'
     }
   }
 ];
@@ -297,6 +313,7 @@ function renderEligibleExchangeTable() {
 
 function wipLegCells(leg) {
   return '<td>' + leg.id + '</td>' +
+    '<td>' + leg.consignmentId + '</td>' +
     '<td>' + leg.product + '</td>' +
     '<td>' + leg.mode + '</td>' +
     '<td>' + leg.status + '</td>' +
@@ -306,7 +323,10 @@ function wipLegCells(leg) {
     '<td><a class="product-link">' + leg.location + '</a></td>' +
     '<td>' + leg.validDate + '</td>' +
     '<td>' + leg.logisticsPartner + '</td>' +
-    '<td>' + leg.trackingLink + '</td>';
+    '<td>' + leg.trackingLink + '</td>' +
+    '<td>' + leg.refundStatus + '</td>' +
+    '<td>' + leg.refundAmount + '</td>' +
+    '<td>' + leg.refundMode + '</td>';
 }
 
 function renderExchangeWipTable() {
