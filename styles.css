@@ -365,6 +365,10 @@ body {
   background: #fafafa;
 }
 
+.data-table .col-product {
+  min-width: 200px;
+}
+
 .data-table input[type="checkbox"],
 .data-table input[type="radio"] {
   cursor: pointer;
