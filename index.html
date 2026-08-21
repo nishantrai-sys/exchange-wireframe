@@ -184,23 +184,25 @@
         <!-- Eligible items for exchange -->
         <div class="panel panel-success margin-top">
           <div class="panel-heading">Items eligible for exchange</div>
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Select</th>
-                <th>Products</th>
-                <th>Size</th>
-                <th>Delivery Mode</th>
-                <th>Exchange Size</th>
-                <th>Exchange Mode</th>
-                <th>Qc Bypass</th>
-                <th>Exchange Reason</th>
-                <th>Comment(s)</th>
-                <th>Pick-up Location</th>
-              </tr>
-            </thead>
-            <tbody id="exchange-eligible-body"></tbody>
-          </table>
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Select</th>
+                  <th>Products</th>
+                  <th>Size</th>
+                  <th>Delivery Mode</th>
+                  <th>Exchange Size</th>
+                  <th>Exchange Mode</th>
+                  <th>Qc Bypass</th>
+                  <th>Exchange Reason</th>
+                  <th>Comment(s)</th>
+                  <th>Pick-up Location</th>
+                </tr>
+              </thead>
+              <tbody id="exchange-eligible-body"></tbody>
+            </table>
+          </div>
           <div class="panel-footer">
             <button class="btn btn-teal">Initiate Exchange</button>
             <small class="footer-note">*Select Item, Choose Exchange Mode, Size &amp; Reason, Comment to Continue. If exchange mode is Reverse Pickup or Store Walk In, Please select Pick-up Location</small>
@@ -231,30 +233,32 @@
         <!-- Work in progress exchange -->
         <div class="panel panel-info margin-top">
           <div class="panel-heading">Work in progress exchange</div>
-          <table class="data-table wip-table">
-            <thead>
-              <tr>
-                <th>Select</th>
-                <th>Leg</th>
-                <th>Id</th>
-                <th>Consignment Id</th>
-                <th>Product</th>
-                <th>Mode</th>
-                <th>Status</th>
-                <th>Error</th>
-                <th>Reason</th>
-                <th>History</th>
-                <th>Location</th>
-                <th>Return Pick-up/ Forward Delivery Date</th>
-                <th>Logistics Partner</th>
-                <th>Tracking Link</th>
-                <th>Refund Status</th>
-                <th>Refund Amount</th>
-                <th>Refund Modes</th>
-              </tr>
-            </thead>
-            <tbody id="exchange-wip-body"></tbody>
-          </table>
+          <div class="table-responsive">
+            <table class="data-table wip-table">
+              <thead>
+                <tr>
+                  <th>Select</th>
+                  <th>Leg</th>
+                  <th>Id</th>
+                  <th>Consignment Id</th>
+                  <th>Product</th>
+                  <th>Mode</th>
+                  <th>Status</th>
+                  <th>Error</th>
+                  <th>Reason</th>
+                  <th>History</th>
+                  <th>Location</th>
+                  <th>Return Pick-up/ Forward Delivery Date</th>
+                  <th>Logistics Partner</th>
+                  <th>Tracking Link</th>
+                  <th>Refund Status</th>
+                  <th>Refund Amount</th>
+                  <th>Refund Modes</th>
+                </tr>
+              </thead>
+              <tbody id="exchange-wip-body"></tbody>
+            </table>
+          </div>
           <div class="panel-footer">
             <button class="btn btn-teal">Assign Task</button>
             <small class="footer-note">*Select Item to Assign Task</small>
