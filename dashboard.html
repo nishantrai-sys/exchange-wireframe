@@ -290,6 +290,44 @@
     font-weight: 700;
   }
 
+  .resend-channels {
+    margin-bottom: 24px;
+  }
+
+  .resend-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-top: 1px solid #eee;
+    font-size: 14px;
+  }
+
+  .resend-label {
+    color: #222;
+  }
+
+  .resend-timer {
+    color: #888;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .resend-timer.hidden {
+    display: none;
+  }
+
+  .resend-cta {
+    color: #d6006c;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .resend-cta.hidden {
+    display: none;
+  }
+
   .otp-submit {
     width: 100%;
     padding: 17px;
@@ -399,6 +437,23 @@
         <span class="otp-timer" id="otp-timer">00:24</span>
       </div>
 
+      <div class="resend-channels">
+        <div class="resend-row">
+          <span class="resend-label">Send on SMS</span>
+          <span class="resend-status">
+            <span class="resend-timer" data-channel="sms">00:30</span>
+            <a href="#" class="resend-cta hidden" data-channel="sms">Resend</a>
+          </span>
+        </div>
+        <div class="resend-row">
+          <span class="resend-label">Send on Whatsapp</span>
+          <span class="resend-status">
+            <span class="resend-timer" data-channel="whatsapp">00:30</span>
+            <a href="#" class="resend-cta hidden" data-channel="whatsapp">Resend</a>
+          </span>
+        </div>
+      </div>
+
       <button type="button" class="otp-submit" id="otp-submit" disabled>SUBMIT</button>
     </div>
   </div>
@@ -437,6 +492,56 @@
     }
     timerEl.textContent = '00:' + (secondsLeft < 10 ? '0' + secondsLeft : secondsLeft);
   }, 1000);
+
+  // Send on SMS / Send on Whatsapp share one 30s countdown: both timers
+  // stay in sync, and resending on either channel restarts both.
+  var resendTimerEls = document.querySelectorAll('.resend-timer');
+  var resendCtaEls = document.querySelectorAll('.resend-cta');
+  var resendInterval = null;
+
+  function setResendDisplay(seconds) {
+    var text = '00:' + (seconds < 10 ? '0' + seconds : seconds);
+    resendTimerEls.forEach(function(el) {
+      el.textContent = text;
+    });
+  }
+
+  function startResendCountdown() {
+    var resendSecondsLeft = 30;
+
+    clearInterval(resendInterval);
+    resendTimerEls.forEach(function(el) {
+      el.classList.remove('hidden');
+    });
+    resendCtaEls.forEach(function(el) {
+      el.classList.add('hidden');
+    });
+    setResendDisplay(resendSecondsLeft);
+
+    resendInterval = setInterval(function() {
+      resendSecondsLeft -= 1;
+      if (resendSecondsLeft <= 0) {
+        clearInterval(resendInterval);
+        resendTimerEls.forEach(function(el) {
+          el.classList.add('hidden');
+        });
+        resendCtaEls.forEach(function(el) {
+          el.classList.remove('hidden');
+        });
+        return;
+      }
+      setResendDisplay(resendSecondsLeft);
+    }, 1000);
+  }
+
+  resendCtaEls.forEach(function(cta) {
+    cta.addEventListener('click', function(e) {
+      e.preventDefault();
+      startResendCountdown();
+    });
+  });
+
+  startResendCountdown();
 </script>
 </body>
 </html>
